@@ -1,0 +1,385 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Mahima Kumari - Portfolio</title>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet"/>
+<style>
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
+html,body{width:100%;overflow-x:hidden}
+html{scroll-behavior:smooth}
+body{font-family:'Plus Jakarta Sans',sans-serif;background:#07090f;color:#f0f6ff}
+a{text-decoration:none;color:inherit}
+img{display:block;max-width:100%}
+
+/* HEADER */
+header{position:fixed;top:0;left:0;right:0;z-index:1000;height:62px;display:flex;align-items:center;justify-content:space-between;padding:0 48px;background:rgba(7,9,15,0.95);border-bottom:1px solid rgba(255,255,255,0.07)}
+.logo{font-family:'DM Serif Display',serif;font-size:20px;color:#f0f6ff}
+.logo em{font-style:normal;color:#93c5fd}
+nav{display:flex;align-items:center;gap:4px}
+nav a{font-size:13px;font-weight:500;color:#8b98b3;padding:6px 12px;border-radius:7px;transition:color .2s,background .2s}
+nav a:hover{color:#f0f6ff;background:rgba(255,255,255,.06)}
+.cta{background:#2563eb;color:#fff !important;padding:8px 18px;border-radius:8px;font-weight:700}
+.cta:hover{background:#3b82f6}
+
+/* HAMBURGER - hidden on desktop */
+.ham{display:none;flex-direction:column;gap:6px;width:40px;height:40px;background:none;border:none;cursor:pointer;align-items:center;justify-content:center;padding:0}
+.ham span{display:block;width:24px;height:2px;background:#f0f6ff;border-radius:2px;transition:all 0.3s}
+
+/* MOBILE DRAWER */
+.mnav{position:fixed;top:62px;left:0;right:0;z-index:998;background:#0d0f18;border-bottom:1px solid rgba(255,255,255,0.07);overflow:hidden;max-height:0;transition:max-height 0.4s ease;display:block}
+.mnav a{display:block;padding:16px 28px;font-size:15px;font-weight:500;color:#8b98b3;border-bottom:1px solid rgba(255,255,255,0.05)}
+.mnav a:hover{color:#f0f6ff;background:rgba(255,255,255,0.04)}
+
+/* HERO */
+.hero{position:relative;min-height:100vh;display:flex;flex-direction:column;justify-content:center;padding:110px 48px 80px;overflow:hidden}
+.hero::before{content:'';position:absolute;inset:0;background-image:radial-gradient(rgba(255,255,255,.03) 1px,transparent 1px);background-size:28px 28px;z-index:0}
+.glow1{position:absolute;width:600px;height:500px;border-radius:50%;background:rgba(37,99,235,.1);filter:blur(120px);top:-80px;right:-80px;z-index:0;pointer-events:none}
+.glow2{position:absolute;width:450px;height:350px;border-radius:50%;background:rgba(16,185,129,.07);filter:blur(120px);bottom:-60px;left:-80px;z-index:0;pointer-events:none}
+
+.hero-inner{position:relative;z-index:1;max-width:1100px;margin:0 auto;width:100%;display:grid;grid-template-columns:1fr 300px;align-items:center;gap:64px}
+
+.avail{display:inline-flex;align-items:center;gap:8px;background:rgba(16,185,129,.1);border:1px solid rgba(16,185,129,.3);color:#10b981;font-size:11px;font-weight:700;letter-spacing:2px;text-transform:uppercase;padding:7px 16px;border-radius:30px;margin-bottom:22px}
+.dot{width:7px;height:7px;border-radius:50%;background:#10b981;animation:pulse 2s infinite}
+@keyframes pulse{0%,100%{box-shadow:0 0 0 0 rgba(16,185,129,.6)}50%{box-shadow:0 0 0 8px rgba(16,185,129,0)}}
+
+h1{font-family:'DM Serif Display',serif;font-size:clamp(34px,5vw,66px);line-height:1.03;color:#f0f6ff;margin-bottom:12px;letter-spacing:-1px}
+.role{font-size:12px;font-weight:700;letter-spacing:2.5px;text-transform:uppercase;color:#93c5fd;margin-bottom:18px;display:flex;flex-wrap:wrap;gap:6px;align-items:center}
+.sep{color:#3d4a63}
+.bio{font-size:15px;font-weight:300;line-height:1.85;color:#8b98b3;max-width:520px;margin-bottom:34px}
+.bio strong{color:#f0f6ff;font-weight:600}
+.btns{display:flex;gap:10px;flex-wrap:wrap}
+.btn{display:inline-flex;align-items:center;gap:8px;padding:12px 22px;border-radius:9px;font-size:13px;font-weight:700;transition:all .25s}
+.btn-p{background:#2563eb;color:#fff}
+.btn-p:hover{background:#3b82f6;transform:translateY(-2px)}
+.btn-s{border:1px solid rgba(255,255,255,.15);color:#8b98b3}
+.btn-s:hover{border-color:#3b82f6;color:#93c5fd;transform:translateY(-2px)}
+
+.photo-col{position:relative;flex-shrink:0}
+.pglow{position:absolute;inset:-4px;border-radius:26px;background:linear-gradient(135deg,#2563eb,#10b981,#93c5fd);opacity:.4;z-index:0;animation:hue 6s linear infinite}
+@keyframes hue{to{filter:hue-rotate(360deg)}}
+.pbox{position:relative;z-index:1;width:100%;aspect-ratio:4/5;border-radius:22px;overflow:hidden;border:1px solid rgba(255,255,255,.08)}
+.pbox img{width:100%;height:100%;object-fit:cover;object-position:center top}
+.pchip{position:absolute;bottom:-14px;left:50%;transform:translateX(-50%);z-index:2;white-space:nowrap;display:inline-flex;align-items:center;gap:7px;background:#161924;border:1px solid rgba(255,255,255,.15);border-radius:30px;padding:8px 16px;font-size:11px;font-weight:600;color:#f0f6ff;box-shadow:0 8px 28px rgba(0,0,0,.6)}
+.pchip i{color:#93c5fd}
+
+/* SECTIONS */
+.wrap{max-width:1100px;margin:0 auto;padding:100px 48px 0}
+.sh{margin-bottom:46px}
+.ey{font-size:11px;font-weight:700;letter-spacing:3px;text-transform:uppercase;color:#93c5fd;margin-bottom:10px}
+.st{font-family:'DM Serif Display',serif;font-size:clamp(28px,3.5vw,44px);color:#f0f6ff;letter-spacing:-.5px;line-height:1.1}
+.sb{width:34px;height:3px;background:linear-gradient(90deg,#2563eb,#93c5fd);border-radius:2px;margin-top:14px}
+
+.g2{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+.card{background:#111420;border:1px solid rgba(255,255,255,.07);border-radius:16px;padding:26px;transition:border-color .25s,transform .25s}
+.card:hover{border-color:rgba(59,130,246,.35);transform:translateY(-4px)}
+.cic{font-size:24px;margin-bottom:12px}
+.ct{font-family:'DM Serif Display',serif;font-size:17px;color:#f0f6ff;margin-bottom:8px}
+.cb{font-size:13.5px;font-weight:300;line-height:1.8;color:#8b98b3}
+
+.pg{display:grid;grid-template-columns:1fr 1fr;gap:18px}
+.proj{background:#111420;border:1px solid rgba(255,255,255,.07);border-radius:16px;padding:28px;position:relative;overflow:hidden;transition:transform .3s,border-color .3s,box-shadow .3s}
+.proj::before{content:'';position:absolute;top:0;left:0;right:0;height:3px;background:linear-gradient(90deg,#2563eb,#93c5fd,#10b981);opacity:0;transition:opacity .3s}
+.proj:hover{transform:translateY(-5px);border-color:rgba(59,130,246,.3);box-shadow:0 20px 48px rgba(0,0,0,.5)}
+.proj:hover::before{opacity:1}
+.proj.full{grid-column:1/-1}
+.pb{display:inline-flex;align-items:center;gap:6px;font-size:10px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;padding:4px 11px;border-radius:20px;margin-bottom:14px}
+.pb1{background:rgba(37,99,235,.15);color:#93c5fd;border:1px solid rgba(37,99,235,.25)}
+.pb2{background:rgba(16,185,129,.1);color:#10b981;border:1px solid rgba(16,185,129,.2)}
+.pt{font-family:'DM Serif Display',serif;font-size:19px;color:#f0f6ff;margin-bottom:6px;line-height:1.25}
+.pd{font-size:11.5px;color:#3d4a63;font-weight:600;letter-spacing:.4px;margin-bottom:12px}
+.pl{list-style:none;display:flex;flex-direction:column;gap:8px;margin-bottom:14px}
+.pl li{font-size:13.5px;font-weight:300;line-height:1.65;color:#8b98b3;padding-left:18px;position:relative}
+.pl li::before{content:'▸';position:absolute;left:0;color:#3b82f6;font-size:11px;top:3px}
+.tags{display:flex;flex-wrap:wrap;gap:6px;margin-top:14px}
+.tag{font-size:11px;font-weight:600;background:rgba(255,255,255,.04);color:#3d4a63;border:1px solid rgba(255,255,255,.07);padding:4px 11px;border-radius:20px}
+
+.mw{overflow:hidden;margin-bottom:12px;mask-image:linear-gradient(90deg,transparent,black 10%,black 90%,transparent);-webkit-mask-image:linear-gradient(90deg,transparent,black 10%,black 90%,transparent)}
+.mq{display:flex;gap:10px;width:max-content;animation:mqs 28s linear infinite}
+.mq2{animation-direction:reverse;animation-duration:22s}
+@keyframes mqs{to{transform:translateX(-50%)}}
+.mp{display:inline-flex;align-items:center;flex-shrink:0;background:#111420;border:1px solid rgba(255,255,255,.07);color:#8b98b3;font-size:12px;font-weight:600;padding:8px 16px;border-radius:30px}
+
+.sg{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-top:30px}
+.sc{background:#111420;border:1px solid rgba(255,255,255,.07);border-radius:14px;padding:22px;transition:transform .25s,border-color .25s}
+.sc:hover{transform:translateY(-3px);border-color:rgba(59,130,246,.3)}
+.st2{display:flex;align-items:center;gap:10px;margin-bottom:14px}
+.si{width:36px;height:36px;border-radius:8px;background:rgba(37,99,235,.12);border:1px solid rgba(37,99,235,.18);display:flex;align-items:center;justify-content:center;font-size:14px;color:#93c5fd}
+.sn{font-size:11px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;color:#3d4a63}
+.sp{display:flex;flex-wrap:wrap;gap:6px}
+.spi{font-size:12px;font-weight:500;background:rgba(255,255,255,.04);color:#8b98b3;border:1px solid rgba(255,255,255,.07);padding:4px 11px;border-radius:20px}
+
+.tl{display:flex;flex-direction:column}
+.tr{display:grid;grid-template-columns:110px 2px 1fr;gap:0 26px;padding-bottom:44px}
+.tr:last-child{padding-bottom:0}
+.ty{text-align:right;padding-top:2px;font-family:'DM Serif Display',serif;font-size:13px;color:#93c5fd;line-height:1.4}
+.ts{position:relative;background:linear-gradient(to bottom,#2563eb,transparent);opacity:.2}
+.tr:last-child .ts{opacity:0}
+.tdot{position:absolute;top:4px;left:50%;transform:translateX(-50%);width:11px;height:11px;border-radius:50%;background:#3b82f6;box-shadow:0 0 0 3px rgba(59,130,246,.2),0 0 0 6px rgba(59,130,246,.07)}
+.tb{padding-top:1px}
+.td{font-family:'DM Serif Display',serif;font-size:16px;color:#f0f6ff;margin-bottom:3px}
+.tsc{font-size:13.5px;color:#8b98b3;margin-bottom:9px}
+.sc2{display:inline-flex;align-items:center;gap:5px;font-size:12px;font-weight:700;color:#f59e0b;background:rgba(245,158,11,.1);border:1px solid rgba(245,158,11,.22);padding:3px 11px;border-radius:20px}
+
+.cl{display:flex;flex-direction:column;gap:10px}
+.cc{display:flex;justify-content:space-between;align-items:center;background:#111420;border:1px solid rgba(255,255,255,.07);border-radius:12px;padding:16px 20px;transition:border-color .25s,transform .2s}
+.cc:hover{border-color:rgba(59,130,246,.3);transform:translateX(5px)}
+.ccl{display:flex;align-items:center;gap:13px}
+.cci{width:36px;height:36px;border-radius:8px;background:rgba(245,158,11,.1);border:1px solid rgba(245,158,11,.2);display:flex;align-items:center;justify-content:center;color:#f59e0b;font-size:13px;flex-shrink:0}
+.ccn{font-family:'DM Serif Display',serif;font-size:15px;color:#f0f6ff}
+.ccb{font-size:11.5px;color:#3d4a63;margin-top:2px}
+.ccy{font-size:11px;font-weight:700;color:#93c5fd;background:rgba(59,130,246,.1);border:1px solid rgba(59,130,246,.2);padding:3px 10px;border-radius:20px;white-space:nowrap}
+
+.oc{background:#111420;border:1px solid rgba(255,255,255,.07);border-radius:16px;padding:28px;display:flex;gap:20px;align-items:flex-start;transition:border-color .25s,transform .25s}
+.oc:hover{border-color:rgba(59,130,246,.3);transform:translateY(-3px)}
+.oe{font-size:32px;flex-shrink:0;line-height:1}
+.ot{font-family:'DM Serif Display',serif;font-size:17px;color:#f0f6ff;margin-bottom:7px}
+.ob{font-size:14px;font-weight:300;color:#8b98b3;line-height:1.78}
+
+.cw{max-width:1100px;margin:100px auto 0;padding:0 48px 100px}
+.cbox{background:#111420;border:1px solid rgba(255,255,255,.07);border-radius:22px;padding:72px;text-align:center;position:relative;overflow:hidden}
+.cbox::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse 600px 280px at 50% 0%,rgba(37,99,235,.1) 0%,transparent 70%)}
+.cbox > *{position:relative;z-index:1}
+.cey{display:block;font-size:11px;font-weight:700;letter-spacing:3px;text-transform:uppercase;color:#93c5fd;margin-bottom:14px}
+.ch{font-family:'DM Serif Display',serif;font-size:clamp(30px,4vw,50px);color:#f0f6ff;letter-spacing:-.5px;margin-bottom:12px}
+.cs{font-size:15px;font-weight:300;color:#8b98b3;margin-bottom:44px}
+.cbs{display:flex;justify-content:center;gap:12px;flex-wrap:wrap}
+.cbtn{display:inline-flex;align-items:center;gap:9px;padding:13px 26px;border-radius:10px;font-size:13.5px;font-weight:700;transition:all .25s}
+.cbtn1{background:#2563eb;color:#fff}
+.cbtn1:hover{background:#3b82f6;transform:translateY(-3px);box-shadow:0 16px 40px rgba(37,99,235,.4)}
+.cbtn2{border:1px solid rgba(255,255,255,.15);color:#8b98b3}
+.cbtn2:hover{border-color:#3b82f6;color:#93c5fd;transform:translateY(-3px)}
+
+footer{background:#07090f;border-top:1px solid rgba(255,255,255,.07);padding:24px 48px;display:flex;justify-content:space-between;align-items:center;font-size:12px;font-weight:600;letter-spacing:.8px;text-transform:uppercase;color:#3d4a63}
+.fr{display:inline-flex;align-items:center;gap:7px;color:#10b981}
+.fdot{width:7px;height:7px;border-radius:50%;background:#10b981;animation:pulse 2s infinite}
+
+.r{opacity:0;transform:translateY(22px);transition:opacity .6s,transform .6s}
+.r.v{opacity:1;transform:translateY(0)}
+.d1{transition-delay:.07s}.d2{transition-delay:.15s}.d3{transition-delay:.23s}.d4{transition-delay:.31s}
+
+/* ===== MOBILE ===== */
+@media (max-width: 768px) {
+  header { padding: 0 16px; }
+  nav { display: none !important; }
+  .ham { display: flex !important; }
+
+  .hero { padding: 88px 16px 60px; }
+  .hero-inner { grid-template-columns: 1fr; gap: 0; text-align: center; }
+  .hero-left { order: 2; }
+  .photo-col { order: 1; width: 150px; margin: 0 auto 30px; }
+  .avail { justify-content: center; }
+  .role { justify-content: center; }
+  .bio { margin: 0 auto 28px; font-size: 14px; }
+  .btns { justify-content: center; }
+
+  .wrap { padding: 64px 16px 0; }
+  .cw { padding: 0 16px 64px; }
+  .cbox { padding: 36px 18px; }
+
+  .g2 { grid-template-columns: 1fr; }
+  .pg { grid-template-columns: 1fr; }
+  .proj.full { grid-column: 1; }
+  .sg { grid-template-columns: 1fr; }
+
+  .tr { grid-template-columns: 64px 2px 1fr; gap: 0 12px; }
+  .ty { font-size: 11px; }
+  .cc { flex-direction: column; align-items: flex-start; gap: 10px; }
+  footer { flex-direction: column; gap: 10px; padding: 20px 16px; text-align: center; }
+}
+@media (max-width: 400px) {
+  h1 { font-size: 28px; }
+  .btn { padding: 11px 14px; font-size: 12px; }
+}
+</style>
+</head>
+<body>
+
+<header>
+  <div class="logo">Mahima<em>.</em></div>
+  <nav>
+    <a href="#about">About</a>
+    <a href="#projects">Projects</a>
+    <a href="#skills">Skills</a>
+    <a href="#academics">Academics</a>
+    <a href="#other">Other</a>
+    <a href="#contact" class="cta">Let's Talk</a>
+  </nav>
+  <button class="ham" id="ham" aria-label="Menu">
+    <span></span><span></span><span></span>
+  </button>
+</header>
+
+<div class="mnav" id="mnav">
+  <a href="#about"     onclick="closem()">About</a>
+  <a href="#projects"  onclick="closem()">Projects</a>
+  <a href="#skills"    onclick="closem()">Skills</a>
+  <a href="#academics" onclick="closem()">Academics</a>
+  <a href="#other"     onclick="closem()">Other</a>
+  <a href="#contact"   onclick="closem()">Let's Talk</a>
+</div>
+
+<section class="hero" id="about">
+  <div class="glow1"></div><div class="glow2"></div>
+  <div class="hero-inner">
+    <div class="hero-left">
+      <div class="avail"><div class="dot"></div>Open to Opportunities</div>
+      <h1>Mahima Kumari</h1>
+      <div class="role">Final Year B.Tech <span class="sep">·</span> Data Science <span class="sep">·</span> Deep Learning</div>
+      <p class="bio">Final year Computer Science student specialising in <strong>Data Science</strong>, with hands-on experience in <strong>deep learning</strong>, computer vision and <strong>healthcare AI</strong>. Built end-to-end ML pipelines comparing neural network architectures for medical image classification.</p>
+      <div class="btns">
+        <a href="mailto:mahimapurimetla@gmail.com" class="btn btn-p"><i class="fa-solid fa-envelope"></i> Get in Touch</a>
+        <a href="#projects" class="btn btn-s"><i class="fa-solid fa-folder-open"></i> Projects</a>
+        <a href="https://www.linkedin.com/in/mahima-kumari-2a4250291/" target="_blank" class="btn btn-s"><i class="fa-brands fa-linkedin"></i> LinkedIn</a>
+        <a href="https://github.com/mahima29102004" target="_blank" class="btn btn-s"><i class="fa-brands fa-github"></i> GitHub</a>
+      </div>
+    </div>
+    <div class="photo-col">
+      <div class="pglow"></div>
+      <div class="pbox"><img src="mahima image.jpeg" alt="Mahima Profile Photo">
+    </div>
+      <div class="pchip"><i class="fa-solid fa-graduation-cap"></i> B.Tech 2026 · R.V.R. &amp; J.C.</div>
+    </div>
+  </div>
+</section>
+
+<section class="wrap">
+  <div class="sh r"><div class="ey">About</div><h2 class="st">Why Hire Mahima?</h2><div class="sb"></div></div>
+  <div class="g2">
+    <div class="card r d1"><div class="cic">🧠</div><div class="ct">AI &amp; Deep Learning</div><div class="cb">Hands-on experience building deep learning models with TensorFlow/Keras. Implemented MobileNetV2 transfer learning and MLP for real-world healthcare classification.</div></div>
+    <div class="card r d2"><div class="cic">📊</div><div class="ct">Data Science</div><div class="cb">Proficient in Python, SQL, Pandas, NumPy and Scikit-learn. Experienced in preprocessing, feature engineering, model evaluation and visualisation with Tableau and Power BI.</div></div>
+    <div class="card r d3"><div class="cic">🔬</div><div class="ct">Research Mindset</div><div class="cb">Built a full end-to-end comparative study of neural architectures for breast cancer diagnosis — designed, implemented and evaluated from scratch.</div></div>
+    <div class="card r d4"><div class="cic">🚀</div><div class="ct">Initiative &amp; Growth</div><div class="cb">Dual AICTE internships in AI/ML and Android alongside strong academics. Volunteered for ISRO National Space Day 2024. Actively building and pushing projects to GitHub daily.</div></div>
+  </div>
+</section>
+
+<section class="wrap" id="projects">
+  <div class="sh r"><div class="ey">Work</div><h2 class="st">Projects &amp; Internships</h2><div class="sb"></div></div>
+  <div class="pg">
+    <div class="proj full r d1">
+      <span class="pb pb1"><i class="fa-solid fa-star"></i> Capstone Project</span>
+      <div class="pt">🧬 Breast Cancer Detection — Deep Learning</div>
+      <ul class="pl">
+        <li>Comparative study of neural network architectures for <strong style="color:#f0f6ff">early breast cancer diagnosis</strong></li>
+        <li>Preprocessing pipeline — missing values, feature scaling, image augmentation</li>
+        <li>Implemented <strong style="color:#f0f6ff">MobileNetV2</strong> (transfer learning) and <strong style="color:#f0f6ff">MLP</strong> for structured vs. image-based classification</li>
+        <li>Evaluated using <strong style="color:#f0f6ff">AUC-ROC</strong> — measurable accuracy improvements over baseline</li>
+        <li>Real-world applicability of computer vision in <strong style="color:#f0f6ff">healthcare diagnostics</strong></li>
+      </ul>
+      <div class="tags"><span class="tag">Python</span><span class="tag">TensorFlow/Keras</span><span class="tag">OpenCV</span><span class="tag">NumPy</span><span class="tag">Matplotlib</span><span class="tag">MobileNetV2</span><span class="tag">Scikit-learn</span></div>
+    </div>
+    <div class="proj r d2">
+      <span class="pb pb2"><i class="fa-solid fa-circle-check"></i> Virtual Internship</span>
+      <div class="pd">Apr – Jun 2024</div>
+      <div class="pt">🤖 AI / ML Intern — AICTE</div>
+      <ul class="pl"><li>ML workflows and model development practices</li><li>Supervised and unsupervised learning paradigms</li><li>Hands-on model implementation in Python</li></ul>
+      <div class="tags"><span class="tag">Python</span><span class="tag">Scikit-learn</span><span class="tag">Pandas</span></div>
+    </div>
+    <div class="proj r d3">
+      <span class="pb pb2"><i class="fa-solid fa-circle-check"></i> Virtual Internship</span>
+      <div class="pd">Jul – Sep 2024</div>
+      <div class="pt">📱 Android Developer Intern — AICTE</div>
+      <ul class="pl"><li>Mobile application architecture and Android lifecycle</li><li>UI components, activity management and event handling</li><li>Built practice apps reinforcing Android concepts</li></ul>
+      <div class="tags"><span class="tag">Android</span><span class="tag">Java</span><span class="tag">XML</span></div>
+    </div>
+  </div>
+</section>
+
+<section class="wrap" id="skills">
+  <div class="sh r"><div class="ey">Expertise</div><h2 class="st">Tech Stack</h2><div class="sb"></div></div>
+  <div class="mw"><div class="mq"><span class="mp">Python</span><span class="mp">SQL</span><span class="mp">TensorFlow</span><span class="mp">Keras</span><span class="mp">Pandas</span><span class="mp">NumPy</span><span class="mp">Tableau</span><span class="mp">Power BI</span><span class="mp">GitHub</span><span class="mp">Jupyter</span><span class="mp">OpenCV</span><span class="mp">Matplotlib</span><span class="mp">Python</span><span class="mp">SQL</span><span class="mp">TensorFlow</span><span class="mp">Keras</span><span class="mp">Pandas</span><span class="mp">NumPy</span><span class="mp">Tableau</span><span class="mp">Power BI</span><span class="mp">GitHub</span><span class="mp">Jupyter</span><span class="mp">OpenCV</span><span class="mp">Matplotlib</span></div></div>
+  <div class="mw"><div class="mq mq2"><span class="mp">Java</span><span class="mp">C++</span><span class="mp">HTML</span><span class="mp">CSS</span><span class="mp">Scikit-learn</span><span class="mp">CNNs</span><span class="mp">Transfer Learning</span><span class="mp">MobileNetV2</span><span class="mp">Android</span><span class="mp">Git</span><span class="mp">IoT</span><span class="mp">Deep Learning</span><span class="mp">Java</span><span class="mp">C++</span><span class="mp">HTML</span><span class="mp">CSS</span><span class="mp">Scikit-learn</span><span class="mp">CNNs</span><span class="mp">Transfer Learning</span><span class="mp">MobileNetV2</span><span class="mp">Android</span><span class="mp">Git</span><span class="mp">IoT</span><span class="mp">Deep Learning</span></div></div>
+  <div class="sg">
+    <div class="sc r d1"><div class="st2"><div class="si"><i class="fa-solid fa-code"></i></div><div class="sn">Languages</div></div><div class="sp"><span class="spi">Python</span><span class="spi">SQL</span><span class="spi">Java</span><span class="spi">C++</span></div></div>
+    <div class="sc r d2"><div class="st2"><div class="si"><i class="fa-solid fa-flask"></i></div><div class="sn">Data Science</div></div><div class="sp"><span class="spi">Pandas</span><span class="spi">NumPy</span><span class="spi">Matplotlib</span><span class="spi">Scikit-learn</span></div></div>
+    <div class="sc r d3"><div class="st2"><div class="si"><i class="fa-solid fa-brain"></i></div><div class="sn">Deep Learning</div></div><div class="sp"><span class="spi">TensorFlow</span><span class="spi">Keras</span><span class="spi">CNNs</span><span class="spi">Transfer Learning</span></div></div>
+    <div class="sc r d1"><div class="st2"><div class="si"><i class="fa-solid fa-chart-column"></i></div><div class="sn">Visualization</div></div><div class="sp"><span class="spi">Tableau</span><span class="spi">Power BI</span></div></div>
+    <div class="sc r d2"><div class="st2"><div class="si"><i class="fa-solid fa-globe"></i></div><div class="sn">Web</div></div><div class="sp"><span class="spi">HTML</span><span class="spi">CSS</span></div></div>
+    <div class="sc r d3"><div class="st2"><div class="si"><i class="fa-brands fa-git-alt"></i></div><div class="sn">Tools</div></div><div class="sp"><span class="spi">Git</span><span class="spi">GitHub</span><span class="spi">Jupyter</span></div></div>
+  </div>
+</section>
+
+<section class="wrap" id="academics">
+  <div class="sh r"><div class="ey">Education</div><h2 class="st">Academic Background</h2><div class="sb"></div></div>
+  <div class="tl">
+    <div class="tr r d1"><div class="ty">2023–2026</div><div class="ts"><div class="tdot"></div></div><div class="tb"><div class="td">B.Tech — CSE (Data Science)</div><div class="tsc">R.V.R. &amp; J.C. College of Engineering, Guntur</div><span class="sc2"><i class="fa-solid fa-star" style="font-size:9px"></i> CGPA: 7.72</span></div></div>
+    <div class="tr r d2"><div class="ty">2020–2023</div><div class="ts"><div class="tdot"></div></div><div class="tb"><div class="td">Diploma — CME</div><div class="tsc">SUVR and SR GPC</div><span class="sc2"><i class="fa-solid fa-star" style="font-size:9px"></i> 78.12%</span></div></div>
+    <div class="tr r d3"><div class="ty">2020</div><div class="ts"><div class="tdot"></div></div><div class="tb"><div class="td">SSC</div><div class="tsc">ZP High School</div><span class="sc2"><i class="fa-solid fa-star" style="font-size:9px"></i> 95.0%</span></div></div>
+  </div>
+</section>
+
+<section class="wrap">
+  <div class="sh r"><div class="ey">Learning</div><h2 class="st">Certifications</h2><div class="sb"></div></div>
+  <div class="cl">
+    <div class="cc r d1"><div class="ccl"><div class="cci"><i class="fa-solid fa-certificate"></i></div><div><div class="ccn">Project Management for Managers</div><div class="ccb">NPTEL</div></div></div><span class="ccy">Oct 2025</span></div>
+    <div class="cc r d2"><div class="ccl"><div class="cci"><i class="fa-solid fa-certificate"></i></div><div><div class="ccn">Psychology of Learning</div><div class="ccb">NPTEL</div></div></div><span class="ccy">Oct 2025</span></div>
+    <div class="cc r d3"><div class="ccl"><div class="cci"><i class="fa-solid fa-certificate"></i></div><div><div class="ccn">Introduction to Internet of Things</div><div class="ccb">NPTEL</div></div></div><span class="ccy">Oct 2024</span></div>
+  </div>
+</section>
+
+<section class="wrap" id="other">
+  <div class="sh r"><div class="ey">Beyond Academics</div><h2 class="st">Activities &amp; Volunteering</h2><div class="sb"></div></div>
+  <div class="oc r d1">
+    <div class="oe">🚀</div>
+    <div><div class="ot">Volunteer — National Space Day 2024</div><div class="ob">Supported the event organised by Satish Dhawan Space Centre, ISRO at R.V.R. &amp; J.C. College of Engineering, Guntur. Helped coordinate activities that inspired students toward science and technology.</div></div>
+  </div>
+</section>
+
+<div class="cw" id="contact">
+  <div class="cbox r">
+    <span class="cey">Contact</span>
+    <h2 class="ch">Let's Connect</h2>
+    <p class="cs">Open to internships, entry-level roles and collaborations in Data Science &amp; AI. I typically respond within 24 hours.</p>
+    <div class="cbs">
+      <a href="mailto:mahimapurimetla@gmail.com" class="cbtn cbtn1"><i class="fa-solid fa-envelope"></i> mahimapurimetla@gmail.com</a>
+      <a href="https://github.com/mahima29102004?tab=repositories" target="_blank" class="cbtn cbtn2"><i class="fa-brands fa-github"></i> GitHub</a>
+      <a href="https://www.linkedin.com/in/mahima-kumari-2a4250291/" target="_blank" class="cbtn cbtn2"><i class="fa-brands fa-linkedin"></i> LinkedIn</a>
+    </div>
+  </div>
+</div>
+
+<footer>
+  <span>&#169; 2026 Mahima Kumari &middot; Guntur, India</span>
+  <span class="fr"><div class="fdot"></div> Available for Opportunities</span>
+</footer>
+
+<script>
+var hamBtn = document.getElementById('ham');
+var mnavEl = document.getElementById('mnav');
+var isOpen = false;
+
+hamBtn.addEventListener('click', function() {
+  isOpen = !isOpen;
+  if (isOpen) {
+    mnavEl.style.maxHeight = '420px';
+    hamBtn.children[0].style.transform = 'translateY(8px) rotate(45deg)';
+    hamBtn.children[1].style.opacity = '0';
+    hamBtn.children[2].style.transform = 'translateY(-8px) rotate(-45deg)';
+  } else {
+    mnavEl.style.maxHeight = '0';
+    hamBtn.children[0].style.transform = '';
+    hamBtn.children[1].style.opacity = '';
+    hamBtn.children[2].style.transform = '';
+  }
+});
+
+function closem() {
+  isOpen = false;
+  mnavEl.style.maxHeight = '0';
+  hamBtn.children[0].style.transform = '';
+  hamBtn.children[1].style.opacity = '';
+  hamBtn.children[2].style.transform = '';
+}
+
+var items = document.querySelectorAll('.r');
+var io = new IntersectionObserver(function(entries) {
+  entries.forEach(function(e) {
+    if (e.isIntersecting) { e.target.classList.add('v'); io.unobserve(e.target); }
+  });
+}, {threshold: 0.08});
+items.forEach(function(el) { io.observe(el); });
+</script>
+</body>
+</html>
